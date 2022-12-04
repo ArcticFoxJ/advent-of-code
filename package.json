@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:js": "tsc"
+    "start": "tsc && node .\\solutions.js"
   },
   "dependencies": {
     "typescript": "^4.9.3"
