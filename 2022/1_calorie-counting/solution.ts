@@ -24,6 +24,6 @@ export const logSolution = () => {
         )
 
     console.log('Day 1: Calorie Counting')
-    console.log('part 1 => ', maxTotalCalories(elfCalorieTotals))
-    console.log('part 2 => ', maxThreeTotalCaloriesTotal(elfCalorieTotals))
+    console.log('\tpart 1 => ', maxTotalCalories(elfCalorieTotals))
+    console.log('\tpart 2 => ', maxThreeTotalCaloriesTotal(elfCalorieTotals))
 }
