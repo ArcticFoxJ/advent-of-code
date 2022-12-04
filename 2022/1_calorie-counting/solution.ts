@@ -1,5 +1,5 @@
-const path = require('path');
-const { readFileSync } = require('fs');
+import { readFileSync } from 'fs'
+import { join }from 'path'
 
 const maxTotalCalories = (calories) => {
     return Math.max(...calories)
@@ -12,18 +12,18 @@ const maxThreeTotalCalories = (calories) => {
         .reduce((prev, current) => prev + parseInt(current), 0)
 }
 
-module.exports = logSolution = () => {
+export const logSolution = () => {
 
-    const calories = readFileSync(path.join(__dirname, 'input.txt'))
+    const calories = readFileSync(join(__dirname, 'input.txt'))
         .toString()
         .split(/(\r?\n){2}/)
         .filter(x => !x.match(/^\r?\n$/))
         .map(x => x
             .split(/\r?\n/)
             .reduce((prev, current) => prev + parseInt(current), 0)
-        );
+        )
 
     console.log('Day 1: Calorie Counting')
-    console.log('part 1 => ', maxTotalCalories(calories));
-    console.log('part 2 => ', maxThreeTotalCalories(calories));
+    console.log('part 1 => ', maxTotalCalories(calories))
+    console.log('part 2 => ', maxThreeTotalCalories(calories))
 }
