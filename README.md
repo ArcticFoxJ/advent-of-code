@@ -8,7 +8,7 @@ These solutions are coded with typescript and node.js. The solutions.ts file in 
 
 ### 2022
 
-Completed: **0 / 25**
+Completed: **2 / 25**
 
 - [x] Day 1: Calorie Counting
 - [x] Day 2: Rock Paper Scissors
