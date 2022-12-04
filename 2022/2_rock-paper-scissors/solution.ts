@@ -56,7 +56,7 @@ const getOutcome = (outcomeString: string): outcome => {
     }
 }
 
-const calculateScoreOne = (moves: string[][]) => {
+const calculateScoreOne = (moves: string[][]): number => {
 
     let score: number = 0
 
@@ -77,7 +77,7 @@ const calculateScoreOne = (moves: string[][]) => {
     return score
 }
 
-const calculateScoreTwo = (moves: string[][]) => {
+const calculateScoreTwo = (moves: string[][]): number => {
 
     let score: number = 0
 
@@ -94,7 +94,7 @@ const calculateScoreTwo = (moves: string[][]) => {
     return score
 }
 
-export const logSolution = () => {
+export const logSolution = (): void => {
 
     const moves: string[][] = readFileSync(join(__dirname, 'input.txt'))
         .toString()

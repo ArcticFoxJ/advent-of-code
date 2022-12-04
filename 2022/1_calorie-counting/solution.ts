@@ -12,7 +12,7 @@ const maxThreeTotalCaloriesTotal = (calories: number[]): number => {
         .reduce((prev: number, current: number) => prev + current, 0)
 }
 
-export const logSolution = () => {
+export const logSolution = (): void => {
 
     const elfCalorieTotals: number[] = readFileSync(join(__dirname, 'input.txt'))
         .toString()
