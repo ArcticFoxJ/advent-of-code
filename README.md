@@ -8,9 +8,11 @@ These solutions are coded with typescript and node.js. The solutions.ts file in 
 
 ### 2022
 
-Completed: **2 / 25**
+Completed: **4 / 25**
 
 - [x] Day 1: Calorie Counting
 - [x] Day 2: Rock Paper Scissors
-- [ ] Day 3: Rucksack Reorganization
-- [ ] Day 4: Camp Cleanup
+- [x] Day 3: Rucksack Reorganization
+- [x] Day 4: Camp Cleanup
+- [ ] Day 5: Supply Stacks
+- [ ] Day 6: Tuning Trouble
