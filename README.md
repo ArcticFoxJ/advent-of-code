@@ -8,14 +8,14 @@ These solutions are coded with typescript and node.js. The solutions.ts file in 
 
 ### 2022
 
-Completed: **5 / 25**
+Completed: **6 / 25**
 
 - [x] Day 1: Calorie Counting
 - [x] Day 2: Rock Paper Scissors
 - [x] Day 3: Rucksack Reorganization
 - [x] Day 4: Camp Cleanup
 - [x] Day 5: Supply Stacks
-- [ ] Day 6: Tuning Trouble
+- [x] Day 6: Tuning Trouble
 - [ ] Day 7: No Space Left On Device
 - [ ] Day 8: Treetop Tree House
 - [ ] Day 9: Rope Bridge
