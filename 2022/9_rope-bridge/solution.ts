@@ -45,58 +45,49 @@ class Position {
         const sameX = position.x === this.x 
         const sameY = position.y === this.y
 
-        if (sameX) {
-            if(position.y > this.y + 1){
-                this.move([Direction.Up])
-            }
-            else if(position.y < this.y - 1){
-                this.move([Direction.Down])
-            }
-        }
-        else if(sameY) {
-            if(position.x > this.x + 1){
-                this.move([Direction.Right])
-            }
-            else if (position.x < this.x - 1) {
-                this.move([Direction.Left])
-            }
-        }
-        else {
-            if(position.y > this.y + 1) {
-                if(position.x > this.x) {
-                    this.move([Direction.Up, Direction.Right])
-                }
-                else if(position.x < this.x) {
-                    this.move([Direction.Up, Direction.Left])
-                }
-            }
-            else if(position.y < this.y - 1) {
+        const yMoreThan1RowUp = position.y > this.y + 1
+        const yMoreThan1RowDown = position.y < this.y - 1
 
-                if(position.x > this.x) {
-                    this.move([Direction.Down, Direction.Right])
-                }
-                else if(position.x < this.x) {
-                    this.move([Direction.Down, Direction.Left])
-                }
-            }
-            else if(position.x > this.x + 1) {
-                if(position.y > this.y) {
-                    this.move([Direction.Right, Direction.Up])
-                }
-                else if(position.y < this.y) {
-                    this.move([Direction.Right, Direction.Down])
-                }
-            }
-            else if(position.x < this.x - 1) {
-                if(position.y > this.y) {
-                    this.move([Direction.Left, Direction.Up])
-                }
-                else if(position.y < this.y) {
-                    this.move([Direction.Left, Direction.Down])
-                }
+        const xMoreThan1RowRight = position.x > this.x + 1
+        const xMoreThan1RowLeft = position.x < this.x - 1
 
+        let movements: Direction[] = []
+
+        if(yMoreThan1RowUp) {
+            movements.push(Direction.Up)
+            if(position.x > this.x) {
+                movements.push(Direction.Right)
+            }
+            else if(position.x < this.x) {
+                movements.push(Direction.Left)
+            }
+        } else if (yMoreThan1RowDown) {
+            movements.push(Direction.Down)
+            if(position.x > this.x) {
+                movements.push(Direction.Right)
+            }
+            else if(position.x < this.x) {
+                movements.push(Direction.Left)
+            }
+        } else if(xMoreThan1RowRight){
+            movements.push(Direction.Right)
+            if(position.y > this.y) {
+                movements.push(Direction.Up)
+            }
+            else if(position.y < this.y) {
+                movements.push(Direction.Down)
+            }
+        } else if (xMoreThan1RowLeft) {
+            movements.push(Direction.Left)
+            if(position.y > this.y) {
+                movements.push(Direction.Up)
+            }
+            else if(position.y < this.y) {
+                movements.push(Direction.Down)
             }
         }
+
+        this.move(movements)
     }
 }
 
@@ -172,6 +163,6 @@ export const logSolution = (): void => {
         .split(/\r?\n/)
         
     console.log('Day 6: Tuning Trouble')
-    console.log('\tpart 1 => ', positionsTailVisited(headMovement))
-    console.log('\tpart 2 => ', positionsKnotVisited(headMovement))
+    console.log('\tpart 1 => ', positionsTailVisited(headMovement)) //5710
+    console.log('\tpart 2 => ', positionsKnotVisited(headMovement)) //2259
 }
