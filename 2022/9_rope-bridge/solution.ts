@@ -107,7 +107,7 @@ enum Direction {
     Right = 'R'
 }
 
-const positionsVisited = (headMovement: string[]): number => {
+const positionsTailVisited = (headMovement: string[]): number => {
     let head: Position = new Position(0,0)
     let tail: Position = new Position(0,0)
 
@@ -128,6 +128,43 @@ const positionsVisited = (headMovement: string[]): number => {
     return tail.visitedCount
 }
 
+const positionsKnotVisited = (headMovement: string[]): number => {
+    let head: Position = new Position(0,0)
+    let knot1: Position = new Position(0,0)
+    let knot2: Position = new Position(0,0)
+    let knot3: Position = new Position(0,0)
+    let knot4: Position = new Position(0,0)
+    let knot5: Position = new Position(0,0)
+    let knot6: Position = new Position(0,0)
+    let knot7: Position = new Position(0,0)
+    let knot8: Position = new Position(0,0)
+    let knot9: Position = new Position(0,0)
+
+    let visited = new Set<string>()
+
+    headMovement.forEach((movement: string) => {
+        const stringParts = movement.split(' ')
+
+        const direction: Direction = stringParts[0] as Direction
+        const count: number = parseInt(stringParts[1])
+
+        for(let i=0; i<count; i++) {
+            head.move([direction])
+            knot1.ensureTouching(head)
+            knot2.ensureTouching(knot1)
+            knot3.ensureTouching(knot2)
+            knot4.ensureTouching(knot3)
+            knot5.ensureTouching(knot4)
+            knot6.ensureTouching(knot5)
+            knot7.ensureTouching(knot6)
+            knot8.ensureTouching(knot7)
+            knot9.ensureTouching(knot8)
+        }
+    })
+
+    return knot9.visitedCount
+}
+
 export const logSolution = (): void => {
 
     const headMovement: string[] = readFileSync(join(__dirname, 'input.txt'))
@@ -135,5 +172,6 @@ export const logSolution = (): void => {
         .split(/\r?\n/)
         
     console.log('Day 6: Tuning Trouble')
-    console.log('\tpart 1 => ', positionsVisited(headMovement)) //test=13  input=5710
+    console.log('\tpart 1 => ', positionsTailVisited(headMovement))
+    console.log('\tpart 2 => ', positionsKnotVisited(headMovement))
 }
