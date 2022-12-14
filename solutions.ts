@@ -4,11 +4,13 @@ import * as solution3 from './2022/3_rucksack-reorganization/solution'
 import * as solution4 from './2022/4_camp_cleanup/solution'
 import * as solution5 from './2022/5_supply-stacks/solution'
 import * as solution6 from './2022/6_tuning-trouble/solution'
+import * as solution9 from './2022/9_rope-bridge/solution'
 
 console.log('==========2022==========')
-solution1.logSolution()
-solution2.logSolution()
-solution3.logSolution()
-solution4.logSolution()
-solution5.logSolution()
-solution6.logSolution()
+// solution1.logSolution()
+// solution2.logSolution()
+// solution3.logSolution()
+// solution4.logSolution()
+// solution5.logSolution()
+// solution6.logSolution()
+solution9.logSolution()
