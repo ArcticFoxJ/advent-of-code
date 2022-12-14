@@ -124,8 +124,6 @@ const positionsKnotVisited = (headMovement: string[]): number => {
     let knot8: Position = new Position(0,0)
     let knot9: Position = new Position(0,0)
 
-    let visited = new Set<string>()
-
     headMovement.forEach((movement: string) => {
         const stringParts = movement.split(' ')
 
