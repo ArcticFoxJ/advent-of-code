@@ -36,27 +36,30 @@ class Position {
             }
         });
 
-        console.log([this.x, this.y])
+        // console.log([this.x, this.y])
 
         this._visited.add(JSON.stringify([this.x, this.y]))
     }
 
     ensureTouching(position: Position): void {
-        if(position.x === this.x 
-            && position.y > this.y + 1) {
+        const sameX = position.x === this.x 
+        const sameY = position.y === this.y
+
+        if (sameX) {
+            if(position.y > this.y + 1){
                 this.move([Direction.Up])
-        }
-        else if(position.x === this.x 
-            && position.y < this.y - 1) {
+            }
+            else if(position.y < this.y - 1){
                 this.move([Direction.Down])
+            }
         }
-        else if(position.y === this.y 
-            && position.x > this.x + 1) {
+        else if(sameY) {
+            if(position.x > this.x + 1){
                 this.move([Direction.Right])
-        }
-        else if(position.y === this.y 
-            && position.x < this.x - 1) {
+            }
+            else if (position.x < this.x - 1) {
                 this.move([Direction.Left])
+            }
         }
         else {
             if(position.y > this.y + 1) {
@@ -117,9 +120,7 @@ const positionsVisited = (headMovement: string[]): number => {
         const count: number = parseInt(stringParts[1])
 
         for(let i=0; i<count; i++) {
-            console.log('head')
             head.move([direction])
-            console.log('tail')
             tail.ensureTouching(head)
         }
     })
