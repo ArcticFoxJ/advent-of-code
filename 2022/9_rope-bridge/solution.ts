@@ -1,6 +1,13 @@
 import { Dir, readFileSync } from 'fs'
 import { join }from 'path'
 
+enum Direction {
+    Up = 'U',
+    Down = 'D',
+    Left = 'L',
+    Right = 'R'
+}
+
 class Position {
     private x: number
     private y: number
@@ -36,15 +43,10 @@ class Position {
             }
         });
 
-        // console.log([this.x, this.y])
-
         this._visited.add(JSON.stringify([this.x, this.y]))
     }
 
     ensureTouching(position: Position): void {
-        const sameX = position.x === this.x 
-        const sameY = position.y === this.y
-
         const yMoreThan1RowUp = position.y > this.y + 1
         const yMoreThan1RowDown = position.y < this.y - 1
 
@@ -91,18 +93,9 @@ class Position {
     }
 }
 
-enum Direction {
-    Up = 'U',
-    Down = 'D',
-    Left = 'L',
-    Right = 'R'
-}
-
 const positionsTailVisited = (headMovement: string[]): number => {
     let head: Position = new Position(0,0)
     let tail: Position = new Position(0,0)
-
-    let visited = new Set<string>()
 
     headMovement.forEach((movement: string) => {
         const stringParts = movement.split(' ')
