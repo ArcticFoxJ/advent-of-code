@@ -63,11 +63,10 @@ const smallestSizeToDelete = (lines: string[]): number => {
     const freeSpace = 70000000 - usedSpace
     const requiredSpace = 30000000 - freeSpace
 
-    const sizes: number[] = totals.map(x => x.size)
     let currentResult: number = usedSpace
 
-    sizes.forEach(x => {
-        currentResult = x < currentResult && x > requiredSpace ? x : currentResult
+    totals.forEach(x => {
+        currentResult = x.size < currentResult && x.size > requiredSpace ? x.size : currentResult
     })
 
     return currentResult
